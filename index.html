@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MrFrog.</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Importa React y ReactDOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Importa React Router -->
+  <script src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.min.js"></script>
+
+  <!-- Importa los archivos JavaScript de tus componentes -->
+  <script src="path/to/Login.js"></script>
+  <script src="path/to/App.js"></script>
+
+  <!-- Script para configurar las rutas de React Router y renderizar los componentes -->
+  <script>
+    // Obtén referencias a las funciones necesarias de React y React Router DOM
+    const { BrowserRouter, Routes, Route } = ReactRouterDOM;
+    const { render } = ReactDOM;
+
+    // Función para renderizar la aplicación en el elemento con ID 'root'
+    function renderApp() {
+      render(
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} /> 
+            <Route path="/app" element={<App />} /> 
+          </Routes>
+        </BrowserRouter>,
+        document.getElementById('root')
+      );
+    }
+
+    // Llama a la función para renderizar la aplicación cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', renderApp);
+  </script>
+</body>
+</html>
